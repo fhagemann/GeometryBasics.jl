@@ -220,7 +220,7 @@ Base.show(io::IO, x::Line) = print(io, "Line(", x[1], " => ", x[2], ")")
 Constructs a polygon from a set of exterior points. If interiors are given, each
 of them cuts away from the Polygon.
 """
-struct Polygon{Dim,T<:Real} <: AbstractPolygon{Dim,T}
+struct Polygon{Dim,T<:Number} <: AbstractPolygon{Dim,T}
     exterior::Vector{Point{Dim, T}}
     interiors::Vector{Vector{Point{Dim, T}}}
 end
@@ -501,7 +501,7 @@ results in an empty `views` vector.
 See also: [`merge`](@ref), [`split_mesh`](@ref)
 """
 struct Mesh{
-        Dim, T <: Real,
+        Dim, T <: Number,
         FT <: AbstractFace,
         Names,
         VAT <: Tuple{<: AbstractVector{Point{Dim, T}}, Vararg{VertexAttributeType}},
